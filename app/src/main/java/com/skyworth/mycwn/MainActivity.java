@@ -2,10 +2,17 @@ package com.skyworth.mycwn;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
+import com.artifex.mupdfdemo.ChoosePDFActivity;
+import com.artifex.mupdfdemo.MuPDFActivity;
 import com.skyworth.mycwn.databinding.ActivityMainBinding;
+
+import java.io.File;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,9 +30,17 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        // Example of a call to a native method
-        TextView tv = binding.sampleText;
-        tv.setText(stringFromJNI());
+        binding.textViewJump.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Uri uri = Uri.fromFile(new File("/storage/emulated/0/123.pdf"));
+                Intent intent = new Intent(MainActivity.this, MuPDFActivity.class);
+                intent.setAction(Intent.ACTION_VIEW);
+                intent.setData(uri);
+                startActivity(intent);
+            }
+        });
+
     }
 
     /**
