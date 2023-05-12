@@ -2,11 +2,11 @@ apply plugin: 'com.android.application'
 
 
 android {
-    namespace 'com.skyworth.mycwn'
+//    namespace 'com.artifex.mupdfdemo'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.skyworth.mycwn"
+        applicationId "com.artifex.mupdfdemo"
         minSdk 16
         targetSdk 33
         versionCode 1
@@ -35,18 +35,36 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-    externalNativeBuild {
-        cmake {
-            path file('src/main/cpp/CMakeLists.txt')
-            version '3.18.1'
-        }
-    }
+//    externalNativeBuild {
+//        cmake {
+//            path file('src/main/cpp/CMakeLists.txt')
+//            version '3.18.1'
+//        }
+//    }
     buildFeatures {
         viewBinding true
     }
     sourceSets {
         main {
-            jniLibs.srcDirs = ['libs']
+            manifest {
+                srcFile 'src/main/AndroidManifest.xml'
+            }
+            java {
+                srcDir 'src/main/java'
+                exclude 'com/artifex/mupdf/fitz/AndroidDrawDevice.java'
+            }
+            res {
+                srcDir 'src/main/res'
+            }
+            assets {
+                srcDir 'src/main/assets'
+            }
+            resources {
+                srcDir 'src/main/res'
+            }
+            jniLibs {
+                srcDir 'src/main/libs'
+            }
         }
     }
 }
@@ -54,7 +72,6 @@ android {
 dependencies {
 
 
-    api project(path: ':mupdf')
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'

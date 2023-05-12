@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
-	android:paddingLeft="4dp" >
+	android:paddingLeft="8dp" >
 
 	<ImageView
 		android:id="@+id/icon"
@@ -16,10 +16,10 @@
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:layout_toRightOf="@+id/icon"
-		android:paddingBottom="4dp"
-		android:paddingLeft="10dp"
-		android:paddingRight="4dp"
-		android:paddingTop="4dp"
-		android:textAppearance="?android:attr/textAppearanceMedium" />
+		android:paddingBottom="8dp"
+		android:paddingLeft="12dp"
+		android:paddingRight="12dp"
+		android:paddingTop="8dp"
+		android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </RelativeLayout>
