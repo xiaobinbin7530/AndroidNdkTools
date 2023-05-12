@@ -896,7 +896,7 @@ public class DocActivityView extends FrameLayout implements TabHost.OnTabChangeL
 		{
 			try
 			{
-				System.loadLibrary("libmupdf_java32.so");
+				System.loadLibrary("gs");
 				proofGsLibLoaded = true;
 			}
 			catch (UnsatisfiedLinkError e)
